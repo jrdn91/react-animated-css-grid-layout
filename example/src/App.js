@@ -12,7 +12,7 @@ const App = () => {
     <>
       <div style={{ width: "80%", height: 768, margin: "auto" }}>
         <CSSGridLayout layout={layout}>
-          <GridElement name="one">
+          <GridElement name="one" className="testing">
             Element 1
           </GridElement>
           <GridElement name="two">

@@ -57,6 +57,7 @@ const CSSGridLayout = forwardRef(({ children, layout }, ref) => {
     return Children.map(children, (child) => {
       if (isValidElement(child)) {
         return cloneElement(child, {
+          ...child.props,
           animate: shouldAnimate,
           reRender: reRenderState
         })
@@ -69,7 +70,9 @@ const CSSGridLayout = forwardRef(({ children, layout }, ref) => {
     return Children.map(children, (child) => {
       if (isValidElement(child)) {
         return createElement('div', {
-          className: `rcgl-grid-item ${child.props.name}`
+          className: `rcgl-grid-item ${child.props.name} ${
+            child?.props?.className || ''
+          }`
         })
       }
       return child

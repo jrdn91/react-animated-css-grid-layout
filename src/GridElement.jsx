@@ -14,47 +14,50 @@ function getWindowRelativeOffset(parent, elem) {
   }
 }
 
-const GridElement = memo(({ children, name, reRender, animate }) => {
-  const [boxOffset, setBoxOffset] = useState({
-    top: 0,
-    left: 0,
-    right: 'initial',
-    bottom: 'initial'
-  })
-
-  useEffect(() => {
-    setTimeout(() => {
-      const gridElement = document.querySelector('.rcgl-grid')
-      const moduleGridElement = document.querySelector(
-        `.rcgl-grid-item.${name}`
-      )
-      if (gridElement && moduleGridElement) {
-        const result = getWindowRelativeOffset(gridElement, moduleGridElement)
-        if (result) {
-          setBoxOffset(result)
-        }
-      }
+const GridElement = memo(
+  ({ children, name, reRender, animate, className = '' }) => {
+    const [boxOffset, setBoxOffset] = useState({
+      top: 0,
+      left: 0,
+      right: 'initial',
+      bottom: 'initial'
     })
-  }, [reRender, name])
 
-  return (
-    <div
-      className={classnames(`rcgl-grid-element ${name}`, {
-        animate
-      })}
-      style={{
-        top: `${boxOffset.top}px`,
-        right: `${boxOffset.right}px`,
-        bottom: `${boxOffset.bottom}px`,
-        left: `${boxOffset.left}px`
-      }}
-    >
-      {children}
-    </div>
-  )
-})
+    useEffect(() => {
+      setTimeout(() => {
+        const gridElement = document.querySelector('.rcgl-grid')
+        const moduleGridElement = document.querySelector(
+          `.rcgl-grid-item.${name}`
+        )
+        if (gridElement && moduleGridElement) {
+          const result = getWindowRelativeOffset(gridElement, moduleGridElement)
+          if (result) {
+            setBoxOffset(result)
+          }
+        }
+      })
+    }, [reRender, name])
+
+    return (
+      <div
+        className={classnames(`rcgl-grid-element ${name} ${className}`, {
+          animate
+        })}
+        style={{
+          top: `${boxOffset.top}px`,
+          right: `${boxOffset.right}px`,
+          bottom: `${boxOffset.bottom}px`,
+          left: `${boxOffset.left}px`
+        }}
+      >
+        {children}
+      </div>
+    )
+  }
+)
 
 GridElement.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node,
   name: PropTypes.string.isRequired
 }
