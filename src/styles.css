@@ -1,0 +1,30 @@
+/* add css module styles here (optional) */
+
+.rcgl-grid {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+
+.rcgl-float-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  /* padding: 0.5rem; */
+  box-sizing: border-box;
+}
+
+.rcgl-grid-element {
+  position: absolute;
+  z-index: 1;
+}
+.rcgl-grid-element.animate {
+  transition: top 375ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    right 375ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    bottom 375ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    left 375ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    inset 375ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}

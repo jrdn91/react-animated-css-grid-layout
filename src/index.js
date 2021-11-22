@@ -1,6 +1,4 @@
-import React from 'react'
-import styles from './styles.module.css'
+import './styles.css'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { default } from './CSSGridLayout'
+export { default as GridElement } from './GridElement'
