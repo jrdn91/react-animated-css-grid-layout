@@ -10,7 +10,7 @@ const App = () => {
   }, []);
   return (
     <>
-      <div style={{ width: "100%", height: 768}}>
+      <div style={{ width: "80%", height: 768, margin: "auto" }}>
         <CSSGridLayout layout={layout}>
           <GridElement name="one">
             Element 1

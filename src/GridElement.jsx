@@ -7,10 +7,10 @@ function getWindowRelativeOffset(parent, elem) {
   const elemBounds = elem.getBoundingClientRect()
 
   return {
-    top: elemBounds.top,
-    left: elemBounds.left,
-    bottom: parentBounds.height - elemBounds.bottom,
-    right: parentBounds.width - elemBounds.right
+    top: elemBounds.top - parentBounds.top,
+    left: elemBounds.left - parentBounds.left,
+    bottom: parentBounds.bottom - elemBounds.bottom,
+    right: parentBounds.right - elemBounds.right
   }
 }
 
