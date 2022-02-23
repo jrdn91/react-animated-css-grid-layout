@@ -82,8 +82,17 @@ const App = () => {
     </>
   )
 }
+```
 
-export
+### Additional watch properties
+
+If there are other properties you want to trigger an animation such as something changing an element of your layout without changing the layout string property, pass them in as an array which will get passed to an effect like dependencies...
+
+```jsx
+<CSSGridLayout layout={layout} watchedProps={[prop1, state1]}>
+  ...
+</CSSGridLayout>
+```
 
 ## TODO
 
